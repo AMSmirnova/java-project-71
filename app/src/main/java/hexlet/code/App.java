@@ -3,19 +3,21 @@ package hexlet.code;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
+import picocli.CommandLine.Parameters;
 
+import java.io.File;
 import java.util.concurrent.Callable;
 
-@Command(name = "dendiff", mixinStandardHelpOptions = true,
+@Command(name = "gendiff", mixinStandardHelpOptions = true,
         description = "Compares two configuration files and shows a difference.")
 class App implements Callable<Integer> {
-
-    @Option(names = {"--help", "-h"}, usageHelp = true, description = "Show this help message and exit.")
-    boolean usageHelpRequested;
-
-    @Option(names = {"--version", "-V"}, versionHelp = true, description = "Print version information and exit.")
-    boolean versionInfoRequested;
-
+    @Parameters(index = "0", description = "path to first file.", paramLabel = "filepath1")
+    private String filepath1;
+    @Parameters(index = "1", description = "path to second file.", paramLabel = "filepath2")
+    private String filepath2;
+    @Option(names = {"--format", "-f"}, defaultValue = "stylish",
+            description = "output format [default: ${DEFAULT-VALUE}]", paramLabel = "format")
+    String format;
     @Override
     public Integer call() throws Exception {
         return null;
