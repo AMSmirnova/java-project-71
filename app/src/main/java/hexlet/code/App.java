@@ -5,7 +5,6 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -35,7 +34,6 @@ class App implements Callable<Integer> {
 
         var diff = Differ.generate(path1, path2);
         System.out.println(diff);
-//        System.out.println(Files.readString(path1));
 
         return null;
     }

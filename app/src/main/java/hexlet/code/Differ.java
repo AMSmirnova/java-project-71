@@ -1,18 +1,12 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.stream.Stream;
+import java.util.*;
 
 public class Differ {
     public static String generate(Path filepath1, Path filepath2) throws IOException {
@@ -26,21 +20,16 @@ public class Differ {
 
         var result = genDiff(mapFile1, mapFile2);
 
-
-        System.out.println(result);
-
-
-        return "hi";
+        return result.toString();
     }
 
     public static Map<Map<String, Object>, String> genDiff(Map<String, Object> data1, Map<String, Object> data2) {
 
-        Map<Map<String, Object>, String> result = new LinkedHashMap<>();
+        Map<Map<String, Object>, String> result = new HashMap<>();
         Set<String> keys = new TreeSet<>(data1.keySet());
         keys.addAll(data2.keySet());
 
         for (String key: keys) {
-
             if (!data1.containsKey(key)) {
                 result.put(Map.of(key, data2.get(key)), " + ");
             } else if (!data2.containsKey(key)) {
@@ -56,4 +45,3 @@ public class Differ {
         return result;
     }
 }
-
