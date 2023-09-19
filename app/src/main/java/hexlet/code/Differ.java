@@ -25,7 +25,7 @@ public class Differ {
 
     public static Map<Map<String, Object>, String> genDiff(Map<String, Object> data1, Map<String, Object> data2) {
 
-        Map<Map<String, Object>, String> result = new HashMap<>();
+        Map<Map<String, Object>, String> result = new LinkedHashMap<>();
         Set<String> keys = new TreeSet<>(data1.keySet());
         keys.addAll(data2.keySet());
 
