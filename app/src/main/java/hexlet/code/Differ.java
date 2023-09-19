@@ -41,7 +41,7 @@ public class Differ {
                 result.put(Map.of(key, data2.get(key)), " + ");
             }
         }
-
         return result;
     }
 }
+
