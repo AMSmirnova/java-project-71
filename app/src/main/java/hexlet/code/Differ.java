@@ -6,8 +6,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
-import java.util.stream.Stream;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Differ {
     public static String generate(Path filepath1, Path filepath2) throws IOException {
@@ -21,7 +23,7 @@ public class Differ {
 
         var result = genDiff(mapFile1, mapFile2);
 
-        return result.toString();
+        return mapToString(result);
     }
 
     public static Map genDiff(Map<String, Object> data1, Map<String, Object> data2) {
@@ -43,6 +45,14 @@ public class Differ {
             }
         }
         return result;
+    }
+
+    public static String mapToString(Map<String, String> contentMap) {
+        StringBuilder result = new StringBuilder("{");
+        contentMap.forEach((key, value) -> result.append("\n " + value + key));
+        result.append("\n}");
+
+        return result.toString();
     }
 }
 
