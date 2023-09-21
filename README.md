@@ -1,6 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/AMSmirnova/java-project-71/workflows/hexlet-check/badge.svg)](https://github.com/AMSmirnova/java-project-71/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/${{ SECRETS_MAINTAINABILITY71 }}/maintainability)](https://codeclimate.com/github/AMSmirnova/java-project-71/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/835a4c3ad4acaced67f0/maintainability)](https://codeclimate.com/github/AMSmirnova/java-project-71/maintainability)
 
 
 
