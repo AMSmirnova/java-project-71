@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'application'
     id 'checkstyle'
+    id 'jacoco'
 }
 
 application {
@@ -11,6 +12,8 @@ application {
 checkstyle {
     toolVersion '8.41'
 }
+
+
 
 task checkExercises (type: Checkstyle) {
     file('.').eachDir { course ->
@@ -45,3 +48,4 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
