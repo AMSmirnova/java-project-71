@@ -1,3 +1,4 @@
+
 package hexlet.code;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -16,10 +17,10 @@ public class Differ {
         ObjectMapper objectMapper = new ObjectMapper();
 
         Map<String, Object> mapFile1
-                = objectMapper.readValue(Files.readString(filepath1), new TypeReference<Map<String,Object>>(){});
+                = objectMapper.readValue(Files.readString(filepath1), new TypeReference<Map<String, Object>>() { });
 
         Map<String, Object> mapFile2
-                = objectMapper.readValue(Files.readString(filepath2), new TypeReference<Map<String,Object>>(){});
+                = objectMapper.readValue(Files.readString(filepath2), new TypeReference<Map<String, Object>>() { });
 
         var result = genDiff(mapFile1, mapFile2);
 
