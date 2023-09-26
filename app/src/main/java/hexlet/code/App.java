@@ -23,17 +23,17 @@ class App implements Callable<Integer> {
     String format;
     @Override
     public Integer call() throws Exception {
-        Path path1 = Paths.get(filepath1).toAbsolutePath().normalize();
-        Path path2 = Paths.get(filepath2).toAbsolutePath().normalize();
-        // Проверяем существование файлов
-        if (!Files.exists(path1)) {
-            throw new Exception("File '" + path1 + "' does not exist");
-        }
-        if (!Files.exists(path2)) {
-            throw new Exception("File '" + path2 + "' does not exist");
-        }
+//        Path path1 = Paths.get(filepath1).toAbsolutePath().normalize();
+//        Path path2 = Paths.get(filepath2).toAbsolutePath().normalize();
+//        // Проверяем существование файлов
+//        if (!Files.exists(path1)) {
+//            throw new Exception("File '" + path1 + "' does not exist");
+//        }
+//        if (!Files.exists(path2)) {
+//            throw new Exception("File '" + path2 + "' does not exist");
+//        }
 
-        var diff = Differ.generate(path1, path2);
+        var diff = Differ.generate(filepath1, filepath2);
         System.out.println(diff);
 
         return null;

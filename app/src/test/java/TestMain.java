@@ -2,16 +2,10 @@ import hexlet.code.Differ;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
-public class TestDiffer {
-
+public class TestMain {
     @Test
-    public void testDiffer() throws IOException {
-        Path path1 = Paths.get("src/test/resources/filepath1.json").toAbsolutePath().normalize();
-        Path path2 = Paths.get("src/test/resources/filepath2.json").toAbsolutePath().normalize();
+    public void testDiffer() throws Exception {
 
         String expected = "{\n"
                 + "  - follow: false\n"
@@ -22,7 +16,14 @@ public class TestDiffer {
                 + "  + verbose: true\n"
                 + "}";
 
+        String path1 = "src/test/resources/filepath1.json";
+        String path2 = "src/test/resources/filepath2.json";
+
         assertThat(Differ.generate(path1, path2)).isEqualTo(expected);
 
+        path1 = "src/test/resources/filepath1.yml";
+        path2 = "src/test/resources/filepath2.yml";
+
+        assertThat(Differ.generate(path1, path2)).isEqualTo(expected);
     }
 }
