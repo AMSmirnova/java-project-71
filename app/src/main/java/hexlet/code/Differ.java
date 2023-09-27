@@ -10,8 +10,6 @@ import java.util.TreeSet;
 
 public class Differ {
     public static String generate(String filepath1, String filepath2) throws Exception {
-//        System.out.println(filepath1);
-//        System.out.println(filepath2);
 
         String fileData1 = getData(filepath1);
         String fileData2 = getData(filepath2);
