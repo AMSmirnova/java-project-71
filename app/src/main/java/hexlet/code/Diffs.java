@@ -1,9 +1,9 @@
 package hexlet.code;
 
 public class Diffs {
-    private String status;
-    private Object key;
-    private Object valueOld;
+    private final String status;
+    private final Object key;
+    private final Object valueOld;
     private Object valueNew;
 
     public Diffs(String status, Object key, Object valueOld) {
