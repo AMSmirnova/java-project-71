@@ -21,5 +21,7 @@ out/
 .DS_Store
 
 
-filepath1.yaml
-filepath2.yaml
+file1.json
+file2.json
+file1.yml
+file2.yml

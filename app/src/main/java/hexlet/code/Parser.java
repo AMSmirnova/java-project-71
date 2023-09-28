@@ -20,11 +20,11 @@ public class Parser {
         return mapper.readValue(fileData, new TypeReference<>() { });
     }
 
-    public static Map<String, Object> parse(String fileData, String format) throws IOException {
-        return switch (format) {
+    public static Map<String, Object> parse(String fileData, String fileFormat) throws IOException {
+        return switch (fileFormat) {
             case "json" -> parseJson(fileData);
             case "yml", "yaml" -> parseYAML(fileData);
-            default -> throw new IOException(format + " wrong file format");
+            default -> throw new IOException(fileFormat + " wrong file format");
         };
     }
 }
