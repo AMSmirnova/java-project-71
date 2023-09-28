@@ -12,7 +12,7 @@ public class Plain {
         StringBuilder result = new StringBuilder();
         data.forEach((value) -> {
             try {
-                result.append(getLine(value));
+                result.append(getLine(value) + "\n");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -23,13 +23,13 @@ public class Plain {
 
     public static String getLine(Diffs data) throws IOException {
         return switch (data.getStatus()) {
-            case "added" -> "\nProperty '"
+            case "added" -> "Property '"
                     + data.getKey()
                     + "' was added with value: "
                     + complexValueToString(data.getValueOld());
-            case "deleted" -> "\nProperty '" + data.getKey() + "' was removed";
+            case "deleted" -> "Property '" + data.getKey() + "' was removed";
             case "unchanged" -> "";
-            case "changed" -> "\nProperty '"
+            case "changed" -> "Property '"
                     + data.getKey()
                     + "' was updated. From "
                     + complexValueToString(data.getValueOld())
