@@ -3,7 +3,8 @@ package hexlet.code;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -45,24 +46,23 @@ public class Differ {
         return result[result.length - 1];
     }
 
-    public static Map genDiff(Map<String, Object> data1, Map<String, Object> data2) {
+    public static List<Diffs> genDiff(Map<String, Object> data1, Map<String, Object> data2) {
 
-        Map<String, Object> result = new LinkedHashMap<>();
+        List<Diffs> result = new ArrayList<>();
         Set<Object> keys = new TreeSet<>(data1.keySet());
         keys.addAll(data2.keySet());
 
         for (Object key: keys) {
             if (!data1.containsKey(key)) {
-                result.put(key + ": " + data2.get(key), " + ");
+                result.add(new Diffs("added", key, data2.get(key)));
             } else if (!data2.containsKey(key)) {
-                result.put(key + ": " + data1.get(key), " - ");
-//            } else if (data1.get(key).equals(data2.get(key))) {
-//                result.put(key + ": " + data1.get(key), "   ");
+                result.add(new Diffs("deleted", key, data1.get(key)));
+
             } else if (Objects.equals(data1.get(key), data2.get(key))) {
-                result.put(key + ": " + data1.get(key), "   ");
+                result.add(new Diffs("unchanged", key, data1.get(key)));
+
             } else {
-                result.put(key + ": " + data1.get(key), " - ");
-                result.put(key + ": " + data2.get(key), " + ");
+                result.add(new Diffs("changed", key, data1.get(key), data2.get(key)));
             }
         }
         return result;
