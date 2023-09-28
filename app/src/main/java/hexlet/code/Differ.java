@@ -24,7 +24,7 @@ public class Differ {
 
         var result = genDiff(mapFile1, mapFile2);
 
-        return Formatter.setResultFormat(result, format);
+        return Formatter.setResultFormat(result, format).trim();
     }
 
     public static String generate(String filepath1, String filepath2) throws Exception {

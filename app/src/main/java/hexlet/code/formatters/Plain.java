@@ -12,7 +12,7 @@ public class Plain {
         StringBuilder result = new StringBuilder();
         data.forEach((value) -> {
             try {
-                result.append(getLine(value) + "\n");
+                result.append(getLine(value));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -26,15 +26,17 @@ public class Plain {
             case "added" -> "Property '"
                     + data.getKey()
                     + "' was added with value: "
-                    + complexValueToString(data.getValueOld());
-            case "deleted" -> "Property '" + data.getKey() + "' was removed";
+                    + complexValueToString(data.getValueOld())
+                    + "\n";
+            case "deleted" -> "Property '" + data.getKey() + "' was removed" + "\n";
             case "unchanged" -> "";
             case "changed" -> "Property '"
                     + data.getKey()
                     + "' was updated. From "
                     + complexValueToString(data.getValueOld())
                     + " to "
-                    + complexValueToString(data.getValueNew());
+                    + complexValueToString(data.getValueNew())
+                    + "\n";
 
             default -> throw new IOException(" ");
         };
