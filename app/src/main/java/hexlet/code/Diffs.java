@@ -1,9 +1,9 @@
 package hexlet.code;
 
 public class Diffs {
-    private final String status;
-    private final Object key;
-    private final Object valueOld;
+    private String status;
+    private Object key;
+    private Object valueOld;
     private Object valueNew;
 
     public Diffs(String status, Object key, Object valueOld) {
@@ -19,17 +19,17 @@ public class Diffs {
         this.valueNew = valueNew;
     }
 
-    public String getStatus() {
+    public final String getStatus() {
         return status;
     }
 
-    public Object getKey() {
+    public final Object getKey() {
         return key;
     }
-    public Object getValueOld() {
+    public final Object getValueOld() {
         return valueOld;
     }
-    public Object getValueNew() {
+    public final Object getValueNew() {
         return valueNew;
     }
 
