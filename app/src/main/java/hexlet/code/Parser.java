@@ -11,7 +11,6 @@ import java.util.Map;
 public class Parser {
     public static Map<String, Object> parseJson(String fileData) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-
         return objectMapper.readValue(fileData, new TypeReference<>() { });
     }
 

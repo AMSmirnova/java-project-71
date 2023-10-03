@@ -26,7 +26,7 @@ public class Plain {
             case "added" -> "Property '"
                     + data.getKey()
                     + "' was added with value: "
-                    + complexValueToString(data.getValueOld())
+                    + complexValueToString(data.getValueNew())
                     + "\n";
             case "deleted" -> "Property '" + data.getKey() + "' was removed" + "\n";
             case "unchanged" -> "";
