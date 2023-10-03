@@ -6,12 +6,6 @@ public class Diffs {
     private Object valueOld;
     private Object valueNew;
 
-//    public Diffs(String status, Object key, Object valueOld) {
-//        this.status = status;
-//        this.key = key;
-//        this.valueOld = valueOld;
-//    }
-
     public Diffs(String status, Object key, Object valueOld, Object valueNew) {
         this.status = status;
         this.key = key;
