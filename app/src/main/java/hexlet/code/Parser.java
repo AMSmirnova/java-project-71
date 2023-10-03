@@ -6,7 +6,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Parser {
     public static Map<String, Object> parseJson(String fileData) throws JsonProcessingException {
@@ -20,6 +22,9 @@ public class Parser {
     }
 
     public static Map<String, Object> parse(String fileData, String fileFormat) throws IOException {
+        if (Objects.equals(fileData, "")) {
+            return new HashMap<>();
+        }
         return switch (fileFormat) {
             case "json" -> parseJson(fileData);
             case "yml", "yaml" -> parseYAML(fileData);

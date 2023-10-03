@@ -15,7 +15,7 @@ public class Formatter {
             case "plain" -> formatPlain(data);
             case "json" -> formatJson(data);
 
-            default -> throw new IOException(format + " wrong format");
+            default -> throw new IOException(format + " wrong output format");
         };
     }
 }

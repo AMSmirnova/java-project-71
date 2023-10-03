@@ -4,7 +4,6 @@ package hexlet.code;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -12,7 +11,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class Differ {
-    public static String generate(String filepath1, String filepath2, String format) throws Exception {
+    public static String generate(String filepath1, String filepath2, String outputFormat) throws Exception {
 
         String fileData1 = getData(filepath1);
         String fileData2 = getData(filepath2);
@@ -20,19 +19,12 @@ public class Differ {
         var fileFormat1 = getFileFormat(filepath1);
         var fileFormat2 = getFileFormat(filepath2);
 
-        Map<String, Object> mapFile1 = new HashMap<>();
-        Map<String, Object> mapFile2 = new HashMap<>();
-
-        if (!Objects.equals(fileData1, "")) {
-            mapFile1 = Parser.parse(fileData1, fileFormat1);
-        }
-        if (!Objects.equals(fileData2, "")) {
-            mapFile2 = Parser.parse(fileData2, fileFormat2);
-        }
+        Map<String, Object> mapFile1 = Parser.parse(fileData1, fileFormat1);
+        Map<String, Object> mapFile2 = Parser.parse(fileData2, fileFormat2);
 
         var result = genDiff(mapFile1, mapFile2);
 
-        return Formatter.setResultFormat(result, format).trim();
+        return Formatter.setResultFormat(result, outputFormat).trim();
     }
 
     public static String generate(String filepath1, String filepath2) throws Exception {
