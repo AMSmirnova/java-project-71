@@ -1,14 +1,12 @@
 package hexlet.code.formatters;
 
-import hexlet.code.Diffs;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 public class Plain {
-    public static String formatPlain(List<Diffs> data) {
+    public static String formatPlain(List<Map<Object, Object>> data) {
         StringBuilder result = new StringBuilder();
         data.forEach((value) -> {
             try {
@@ -21,21 +19,21 @@ public class Plain {
         return result.toString();
     }
 
-    public static String getLine(Diffs data) throws IOException {
-        return switch (data.getStatus()) {
+    public static String getLine(Map<Object, Object> data) throws IOException {
+        return switch (data.get("status").toString()) {
             case "added" -> "Property '"
-                    + data.getKey()
+                    + data.get("key")
                     + "' was added with value: "
-                    + complexValueToString(data.getValueNew())
+                    + complexValueToString(data.get("value"))
                     + "\n";
-            case "deleted" -> "Property '" + data.getKey() + "' was removed" + "\n";
+            case "deleted" -> "Property '" + data.get("key") + "' was removed" + "\n";
             case "unchanged" -> "";
             case "changed" -> "Property '"
-                    + data.getKey()
+                    + data.get("key")
                     + "' was updated. From "
-                    + complexValueToString(data.getValueOld())
+                    + complexValueToString(data.get("oldValue"))
                     + " to "
-                    + complexValueToString(data.getValueNew())
+                    + complexValueToString(data.get("newValue"))
                     + "\n";
 
             default -> throw new IOException(" ");
