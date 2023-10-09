@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Stylish {
-    public static String formatStylish(List<Map<Object, Object>> data) {
+    public static String formatStylish(List<Map<String, Object>> data) {
         StringBuilder result = new StringBuilder("{");
         data.forEach((value) -> {
             try {
@@ -19,7 +19,7 @@ public class Stylish {
         return result.toString();
     }
 
-    public static String getLine(Map<Object, Object> data) throws IOException {
+    public static String getLine(Map<String, Object> data) throws IOException {
         return switch (data.get("status").toString()) {
             case "added" -> "\n  + " + data.get("key") + ": " + data.get("value");
             case "deleted" -> "\n  - " + data.get("key") + ": " + data.get("value");

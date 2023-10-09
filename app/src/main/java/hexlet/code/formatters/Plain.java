@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Plain {
-    public static String formatPlain(List<Map<Object, Object>> data) {
+    public static String formatPlain(List<Map<String, Object>> data) {
         StringBuilder result = new StringBuilder();
         data.forEach((value) -> {
             try {
@@ -19,7 +19,7 @@ public class Plain {
         return result.toString();
     }
 
-    public static String getLine(Map<Object, Object> data) throws IOException {
+    public static String getLine(Map<String, Object> data) throws IOException {
         return switch (data.get("status").toString()) {
             case "added" -> "Property '"
                     + data.get("key")

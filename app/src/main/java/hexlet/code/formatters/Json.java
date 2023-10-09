@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Json {
-    public static String formatJson(List<Map<Object, Object>> data) throws JsonProcessingException {
+    public static String formatJson(List<Map<String, Object>> data) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(data);
     }

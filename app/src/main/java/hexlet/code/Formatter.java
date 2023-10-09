@@ -10,7 +10,7 @@ import static hexlet.code.formatters.Stylish.formatStylish;
 
 public class Formatter {
 
-    public static String setResultFormat(List<Map<Object, Object>> data, String format) throws IOException {
+    public static String setResultFormat(List<Map<String, Object>> data, String format) throws IOException {
         return switch (format) {
             case "stylish" -> formatStylish(data);
             case "plain" -> formatPlain(data);

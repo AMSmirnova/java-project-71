@@ -11,7 +11,7 @@ application {
 }
 
 checkstyle {
-    toolVersion '8.41'
+    toolVersion = '10.3.3'
 }
 
 group = 'hexlet.code'

@@ -9,14 +9,14 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class Tree {
-    public static List<Map<Object, Object>> genDiff(Map<String, Object> data1, Map<String, Object> data2) {
+    public static List<Map<String, Object>> genDiff(Map<String, Object> data1, Map<String, Object> data2) {
 
-        List<Map<Object, Object>> result = new ArrayList<>();
+        List<Map<String, Object>> result = new ArrayList<>();
         Set<Object> keys = new TreeSet<>(data1.keySet());
         keys.addAll(data2.keySet());
 
         for (Object key: keys) {
-            Map<Object, Object> diff = new LinkedHashMap<>();
+            Map<String, Object> diff = new LinkedHashMap<>();
 
             if (!data1.containsKey(key)) {
                 diff.put("status", "added");

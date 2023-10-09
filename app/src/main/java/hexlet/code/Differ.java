@@ -14,10 +14,10 @@ public class Differ {
         var fileFormat1 = getFileFormat(filepath1);
         var fileFormat2 = getFileFormat(filepath2);
 
-        Map<String, Object> mapFile1 = Parser.parse(fileData1, fileFormat1);
-        Map<String, Object> mapFile2 = Parser.parse(fileData2, fileFormat2);
+        Map<String, Object> keysAndValuesFile1 = Parser.parse(fileData1, fileFormat1);
+        Map<String, Object> keysAndValuesFile2 = Parser.parse(fileData2, fileFormat2);
 
-        var result = Tree.genDiff(mapFile1, mapFile2);
+        var result = Tree.genDiff(keysAndValuesFile1, keysAndValuesFile2);
 
         return Formatter.setResultFormat(result, outputFormat).trim();
     }
